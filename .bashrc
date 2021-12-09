@@ -4,6 +4,7 @@
 set -o vi
 set bell-style none
 bind '"jj":vi-movement-mode'
+
 alias fzf="fzf --preview='bat {} --color=always' --bind shift-up:preview-page-up,shift-down:preview-page-down"
 # -----------------------------------------------------------------
 
