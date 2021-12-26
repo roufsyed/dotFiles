@@ -6,6 +6,8 @@ set bell-style none
 bind '"jj":vi-movement-mode'
 
 alias fzf="fzf --preview='bat {} --color=always' --bind shift-up:preview-page-up,shift-down:preview-page-down"
+
+JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 # -----------------------------------------------------------------
 
 # If not running interactively, don't do anything
