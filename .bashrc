@@ -6,8 +6,14 @@ set bell-style none
 bind '"jj":vi-movement-mode'
 
 alias fzf="fzf --preview='bat {} --color=always' --bind shift-up:preview-page-up,shift-down:preview-page-down"
+alias e='exit'
+alias c='clear'
+alias p='init 0'
+alias r='init 6'
 
 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+
+alias serve="browser-sync start --server --watch --port 4000 --files '*'"
 # -----------------------------------------------------------------
 
 # If not running interactively, don't do anything
