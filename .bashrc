@@ -10,6 +10,11 @@ alias e='exit'
 alias c='clear'
 alias p='init 0'
 alias r='init 6'
+function Source() {
+    source .bashrc
+    echo "Sourced"
+}
+alias ss='Source'
 
 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
