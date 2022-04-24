@@ -1,0 +1,12 @@
+# Personal Account 
+Host roufsyed
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa
+
+# Work Account 
+Host rouf-syed
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/luSSH
+
