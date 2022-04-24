@@ -10,15 +10,35 @@ alias e='exit'
 alias c='clear'
 alias p='init 0'
 alias r='init 6'
+
+#Tmux alises
+alias tks='tmux kill-session'
+alias tkst='tmux kill-session -t'
+alias tl="tmux ls"
+
+# Git alias
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push origin'
+alias gl='git log'
+alias glod='git log --oneline --decorate'
+
+# Jupyter notebook alias
+alias jnote='source jupyterenv/bin/activate && jupyter notebook'
+
+# function to refresh bashrc file
 function Source() {
-    source .bashrc
+    source ~/.bashrc
     echo "Sourced"
 }
 alias ss='Source'
 
+# java path
 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
-alias serve="browser-sync start --server --watch --port 4000 --files '*'"
+# browser syn alias
+alias serve="browser-sync start --server --port 4000 --files "*" --browser firefox"
 # -----------------------------------------------------------------
 
 # If not running interactively, don't do anything
@@ -133,3 +153,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
