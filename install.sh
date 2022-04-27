@@ -1,7 +1,15 @@
+# The below code copies all the files to respective dir
+\cp .bashrc ~/
+\cp .gitconfig ~/
+\cp .inputrc ~/
+\cp .tmux.conf ~/
+\cp .ideavimrc ~/
+\cp conf ~/.ssh/
 # The below code creates a hard link for the dotfiles
-ln ~/Github Repositories/dotFiles/.bashrc ~/.bashrc
-ln ~/Github Repositories/dotFiles/.gitconfig ~/.gitconfig
-ln ~/Github Repositories/dotFiles/.inputrc ~/.inputrc
-ln ~/Github Repositories/dotFiles/.tmux.conf ~/.tmux.conf
-ln ~/Github Repositories/dotFiles/.ideavimrc ~/.ideavimrc
-ln ~/Github Repositories/dotFiles/config ~/.ssh/config
+ln .bashrc ~/.bashrc
+ln .gitconfig ~/.gitconfig
+ln .inputrc ~/.inputrc
+ln .tmux.conf ~/.tmux.conf
+ln .ideavimrc ~/.ideavimrc
+ln config ~/.ssh/config
+
