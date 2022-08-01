@@ -1,0 +1,71 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+general {
+        colors = true
+        color_good = "#23ff76"
+        color_degraded = "#ff7711"
+        color_bad = "#fd687b"
+        interval = 1
+}
+
+# order += "ethernet _first_"
+# order += "disk /"
+order += "wireless _first_"
+# order += "load"
+order += "memory"
+order += "cpu_usage"
+order += "battery all"
+order += "volume master"
+order += "tztime local"
+
+cpu_usage {
+format = " %usage"
+}
+
+wireless _first_ {
+        format_up = " %quality at %essid, %bitrate"
+        format_down = "睊 "
+}
+
+# ethernet _first_ {
+#         format_up = "E: %ip (%speed)"
+#         format_down = "E: down"
+# }
+
+battery all {
+        format = "%status %percentage %emptytime"
+        format_down = "No battery"
+        status_chr = ""
+        status_bat = ""
+        status_unk = "? UNK"
+        status_full = ""
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 20
+}
+
+volume master {
+        format = "墳 %volume"
+        format_muted = "婢"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+# disk "/" {
+#         format = "Disk:%avail"
+# }
+
+# load {
+#         format = "辰 %1min"
+# }
+
+memory {
+        format = " %used"
+        threshold_degraded = "1G%"
+        format_degraded = "MEMORY: %free"
+}
+
+tztime local {
+        format = " %d-%m-%Y  %H:%M"
+}
