@@ -1,28 +1,31 @@
 # -----------------------------------------------------------------
 # rouf edit
 # -----------------------------------------------------------------
+neofetch
 set -o vi
 set bell-style none
+export EDITOR=nvim
+export VISUAL=nvim
 bind '"jj":vi-movement-mode'
 
-alias fzf="fzf --preview='bat {} --color=always' --bind shift-up:preview-page-up,shift-down:preview-page-down"
-alias e='exit'
-alias c='clear'
-alias p='init 0'
-alias r='init 6'
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-#Tmux alises
-alias tks='tmux kill-session'
-alias tkst='tmux kill-session -t'
-alias tl="tmux ls"
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
-# Git alias
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push origin'
-alias gl='git log'
-alias glod='git log --oneline --decorate'
+# list directories when cd
+cdls ()
+{
+  command cd "$@" && ll
+}
+alias cd=cdls
+
+# nnn
+alias nnn='nnn -a -d -e -F 0 -Q -H'
 
 # Jupyter notebook alias
 alias jnote='source jupyterenv/bin/activate && jupyter notebook'
@@ -30,15 +33,18 @@ alias jnote='source jupyterenv/bin/activate && jupyter notebook'
 # function to refresh bashrc file
 function Source() {
     source ~/.bashrc
-    echo "Sourced"
+    echo "Sourced .bashrc successfully"
 }
 alias ss='Source'
+
+# df alias to display used space human readable
+alias df='df -h'
 
 # java path
 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
 # browser syn alias
-alias serve="browser-sync start --server --port 4000 --files "*" --browser firefox"
+alias serve="browser-sync start --server --port 4000 --files "*" --browser brave-browser"
 # -----------------------------------------------------------------
 
 # If not running interactively, don't do anything
@@ -125,23 +131,11 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -155,3 +149,7 @@ if ! shopt -oq posix; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
+. "$HOME/.cargo/env"
+source /home/rouf/alacritty/extra/completions/alacritty.bash
