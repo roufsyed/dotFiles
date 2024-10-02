@@ -1,0 +1,162 @@
+Remap leader
+let mapleader = "," "map leader to coma
+
+" Project tree view
+set NERDTree
+nnoremap <leader>e :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen=1
+let NERDTreeWinSize=30
+"map <leader>e <Action>(ActivateProjectToolWindow)
+
+" Plugins
+set surround
+set commentary
+set ideajoin " Smart join for <C-J>
+set ideamarks " Map vim marks to IDEA global marks
+
+" Basic setters
+set number
+set rnu 		 " Set relative number
+set showmode
+set scrolloff=4 " Doesn't allow cursor to go all the way to the last line
+set ignorecase
+set history=500   " overrides the 200 in defaults.vim
+
+
+set incsearch
+set ignorecase
+set smartcase
+
+" search yanked data in vim-search
+"nmap / /<C-r>"
+
+" Vim config shortcut
+map ss :source ~/.ideavimrc<CR>
+map <F8> :e ~/.ideavimrc<CR>
+map <F9> <action>(ToggleDistractionFreeMode)
+map <F10> <action>(VimPluginToggle)
+
+"remap to jj to esc and to get into normal mode in terminal
+imap jj <Esc>
+
+" Code jump
+map gd <Action>(GotoDeclaration)
+map gi <Action>(GotoImplementation)
+map gt <Action>(GotoTypeDeclaration)
+map gs <Action>(GotoSuperMethod)
+"map <Space> <Action>(HideActiveWindow)
+map <Space><Space> <Action>(HideAllWindows)
+map gl <Action>(QuickJavaDoc)
+
+" Ace jump
+map <leader><leader> <Action>(AceAction)
+
+" ChatGPT
+"map <leader><leader> <Action>(ActivateChatGPTToolWindow)
+
+" Switchers
+"map <leader><leader> <Action>(SearchEverywhere)
+map <leader>f <Action>(RecentFiles)
+"map <leader>s <Action>(Find)
+map <leader>s <Action>(GotoFile)
+map <leader>c <Action>(GotoClass)
+map <leader><tab> <Action>(ToolWindowsGroup)
+" map <leader>T <Action>(GotoTest) "Disabled because using it for todo list window
+map \\ <Action>(CloseAllEditorsButActive)
+
+" Terminal
+map <leader>t <Action>(com.sburlyaev.cmd.plugin.actions.OpenTerminal)
+
+" Redo
+map U :redo<CR>
+
+" Hide First Notification
+map <C-q> <Action>(CloseFirstNotification)
+
+" Debug application
+map <leader>d <Action>(Debug)
+map ]] <Action>(GotoNextError)
+map [[ <Action>(GotoPreviousError)
+
+" Build
+map CC <Action>(CleanGradleProject)
+map II <Action>(InvalidateCaches)
+map RB <Action>(RebuildGradleProject)
+map RR <Action>(RestartIde)
+map GB <Action>(Android.SyncProject)
+map <leader>r <Action>(android.deploy.ApplyChanges)
+map <leader>R <Action>(Run)
+map <leader>b <Action>(MakeGradleProject)
+
+" Window Groups
+map BV <Action>(ActivateBuildVariantsToolWindow)
+map TW <Action>(ToolWindowsGroup)
+
+" LSP
+eap <Space>r <Action>(RenameElement)
+map <Space>f <Action>(FindInPath)
+map <Space>i <Action>(QuickImplementations)
+map <Space>d <Action>(QuickJavaDoc)
+map <Space>o <Action>(OptimizeImports)
+
+" Diagnostics
+map <leader>P <Action>(ActivateProblemsViewToolWindow)
+map <leader>K <Action>(ActivateAndroidProfilerToolWindow)
+map <leader>L <Action>(ActivateLogcatToolWindow)
+map <leader>B <Action>(ActivateBuildToolWindow)
+map <leader>D <Action>(ActivateDebugToolWindow)
+map <leader>T <Action>(ActivateTODOToolWindow)
+map <leader>S <Action>(ActivateStructureToolWindow)
+map <leader>A <Action>(ActivateAppQualityInsightsToolWindow)
+
+" Git
+map <leader>gl <Action>(Vcs.Show.Log)
+map <leader>gc <Action>(ActivateCommitToolWindow)
+map <leader>gus <Action>(Git.Unstash)
+map <leader>gst <Action>(Git.Stash)
+map <leader>gp <Action>(Vcs.Push)
+map <leader>gd <Action>(Compare.SameVersion)
+map <leader>gg <Action>(Vcs.QuickListPopupAction)
+map <leader>gb <Action>(Git.Branches)
+
+" ADB
+map <leader>a <Action>(AdbIdea)
+
+" Buffers
+"nmap <leader>l :ls<cr>
+"nmap <leader>n :bn<cr>
+"nmap <leader>p :bp<cr>
+"nnoremap <leader>d :bd<cr>
+"map <leader>m :marks<cr>
+
+" Moving forward and backward
+map L <Action>(Forward)
+map H <Action>(Back)
+
+"nnoremap L $
+"nnoremap H ^
+"vnoremap L $
+"vnoremap H ^
+
+" Split movement
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
+" Split navigation
+nnoremap <leader>v :action SplitVertically<CR>
+nnoremap <leader>h :action SplitHorizontally<CR>
+
+" Split Resize
+nmap <c-s-k> <Action>(StretchSplitToTop)
+nmap <c-s-j> <Action>(StretchSplitToBottom)
+nmap <c-s-l> <Action>(StretchSplitToRight)
+nmap <c-s-h> <Action>(StretchSplitToLeft)
+nmap <c-w>o <Action>(MaximizeEditorInSplit)
+nmap <c-w>O <Action>(Unsplit)
+nmap <c-w>j <Action>(ChangeSplitOrientation)
+
+" Save and quit
+nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
