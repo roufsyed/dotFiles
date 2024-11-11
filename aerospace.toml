@@ -1,0 +1,147 @@
+after-login-command = []
+
+after-startup-command = [
+    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+]
+
+start-at-login = true
+enable-normalization-flatten-containers = false
+enable-normalization-opposite-orientation-for-nested-containers = false
+accordion-padding = 10
+default-root-container-layout = 'accordion'
+default-root-container-orientation = 'auto'
+key-mapping.preset = 'qwerty'
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+[gaps]
+inner.horizontal = 0
+inner.vertical =   0
+outer.left =       0
+outer.bottom =     0
+outer.top =        0
+
+[mode.main.binding]
+cmd-alt-h = [] # Disable "hide others"
+# cmd-q = 'close' # Commented because leaving app traces in the dock
+alt-s = 'layout v_accordion' # 'layout stacking' in i3
+alt-w = 'layout h_accordion' # 'layout tabbed' in i3
+alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+# alt-f = 'macos-native-fullscreen' # Stopped using because native full screen givign weird behaviuor when monitor connected
+alt-f = 'fullscreen'
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+alt-r = 'mode resize'
+alt-shift-minus = 'resize smart -50'
+alt-shift-equal = 'resize smart +50'
+alt-semicolon = 'focus-monitor next'
+alt-shift-semicolon = 'focus-monitor previous'
+alt-tab = 'workspace-back-and-forth'
+alt-shift-s = 'mode service'
+alt-shift-c = 'reload-config'
+# alt-slash = 'layout tiles horizontal vertical'
+# alt-comma = 'layout accordion horizontal vertical'
+
+alt-enter = 'exec-and-forget open -n /Applications/kitty.app'
+alt-b = 'exec-and-forget open -n /Applications/Firefox.app'
+
+# Movind across workspace
+cmd-h = 'focus left'
+cmd-j = 'focus down'
+cmd-k = 'focus up'
+cmd-l = 'focus right'
+cmd-1 = 'workspace 1'
+cmd-2 = 'workspace 2'
+cmd-3 = 'workspace 3'
+cmd-4 = 'workspace 4'
+cmd-5 = 'workspace 5'
+cmd-6 = 'workspace 6'
+cmd-7 = 'workspace 7'
+cmd-8 = 'workspace 8'
+cmd-9 = 'workspace 9'
+cmd-0 = 'workspace 10'
+cmd-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
+cmd-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
+cmd-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
+cmd-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
+cmd-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
+cmd-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
+cmd-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
+cmd-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
+cmd-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
+cmd-shift-0 = ['move-node-to-workspace 10', 'workspace 10']
+cmd-p = 'move-workspace-to-monitor --wrap-around next'
+
+# Service commands
+[mode.service.binding]
+r = ['flatten-workspace-tree', 'mode main'] # reset layout
+f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+backspace = ['close-all-windows-but-current', 'mode main']
+cmd-shift-h = ['join-with left', 'mode main']
+cmd-shift-j = ['join-with down', 'mode main']
+cmd-shift-k = ['join-with up', 'mode main']
+cmd-shift-l = ['join-with right', 'mode main']
+
+# Resize bindings
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+r = 'reload-config'
+enter = 'mode main'
+esc = 'mode main'
+
+# Assigning apps to workspace
+[[on-window-detected]]
+if.app-id = 'net.kovidgoyal.kitty'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Terminal'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.google.android.studio'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.dt.Xcode'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+run = 'move-node-to-workspace 3'
+
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.thunderbird'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'org.m0k.transmission'
+run = 'move-node-to-workspace 0'
+
+# make for skype and teams at w8
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
+if.app-id = 'com.skype.skype'
+run = 'move-node-to-workspace 8'
+
+[exec]
+inherit-env-vars = true
+[exec.env-vars]
+PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
+
+# Assigning workspace to monitor
+# [workspace-to-monitor-force-assignment]
+# 9 = ['secondary', 'HP M24f FHD']
+# 10 = ['secondary', 'HP M24f FHD']
